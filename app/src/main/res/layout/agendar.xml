@@ -2,31 +2,61 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:circularflow_radiusInDP="20dp"
     android:orientation="vertical">
+
     <TextView
         android:id="@+id/NTratamiento"
-        android:text="Nombre Del Tratamiento"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="sans-serif-black"
+        android:shadowColor="#000000"
+        android:text="Nombre Del Tratamiento"
+        android:textColor="@color/secondary_text"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/PTratamiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="20dp"
+        android:fontFamily="sans-serif-black"
         android:text="Precio"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"/>
+        android:textColor="@color/secondary_text"
+        android:textSize="16sp" />
 
-    <DatePicker
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        />
+        android:orientation="horizontal"
+        android:layout_margin="5dp">
+
+        <ImageButton
+            android:id="@+id/BFecha"
+            android:layout_marginLeft="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_citas"
+            android:background="@color/secondary_text"/>
+
+        <TextView
+            android:id="@+id/FTratamiento"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:layout_margin="20dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="Fecha"
+            android:textColor="@color/secondary_text" />
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,17 +67,18 @@
             android:id="@+id/btncancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:layout_gravity="left"
-            android:text="Cancelar"/>
+            android:layout_margin="10dp"
+            android:text="Cancelar"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/btnagendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_margin="5dp"
-            android:text="Agendar"/>
+            android:text="Agendar"
+            android:textSize="20sp" />
 
     </LinearLayout>
 

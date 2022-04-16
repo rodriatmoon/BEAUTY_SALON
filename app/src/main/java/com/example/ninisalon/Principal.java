@@ -7,6 +7,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
+import android.app.VoiceInteractor;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,9 +20,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Objects;
 
 public class Principal extends AppCompatActivity {
@@ -137,6 +148,9 @@ public class Principal extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.citas:
+                Intent intent = new Intent(this, CItas.class);
+                startActivity(intent);
+
                 return true;
 
             case R.id.history:
@@ -155,17 +169,61 @@ public class Principal extends AppCompatActivity {
         builder.setView(view);
         final AlertDialog dialog = builder.create();
         dialog.show();
+
         TextView txtN = view.findViewById (R.id.NTratamiento);
         txtN.setText (Nombre);
+
         TextView txtP = view.findViewById (R.id.PTratamiento);
         txtP.setText(Precio);
+
+        TextView txtF = view.findViewById (R.id.FTratamiento);
+
         Button btnAgendar = view.findViewById(R.id.btnagendar);
+
+        ImageButton btnFecha = view.findViewById(R.id.BFecha);
+
+
+        btnFecha.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View V) {
+                int dia, mes, anio;
+
+                final Calendar c = Calendar.getInstance();
+                dia = c.get(Calendar.DAY_OF_MONTH);
+                mes = c.get(Calendar.MONTH);
+                anio = c.get(Calendar.YEAR);
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(Principal.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int day) {
+                        txtF.setText(day + "-" + (month+1) +"-"+year);
+                    }
+                }, dia, mes, anio);
+                datePickerDialog.show();
+            }
+        });
 
         btnAgendar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V) {
+                String T, P, F;
 
-                Toast.makeText(getApplicationContext (), "Agendado con éxito.", Toast.LENGTH_SHORT).show();
+                AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(Principal.this,"administracion", null, 1);
+                SQLiteDatabase bd = admin.getWritableDatabase();
+
+                T = txtN.getText().toString();
+                P = txtP.getText().toString();
+                F = txtF.getText().toString();
+
+                ContentValues registro = new ContentValues();
+
+                registro.put("tratamiento", T);
+                registro.put("precio", P);
+                registro.put("fecha", F);
+                bd.insert("citas", null, registro);
+                bd.close();
+
+                Toast.makeText(getApplicationContext (), "Agendado correctamente", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });

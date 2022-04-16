@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NINISALON">
         <activity
+            android:name=".CItas"
+            android:exported="false"
+            android:theme="@style/Theme.NINISALON"/>
+        <activity
             android:name=".Principal"
             android:exported="false" />
         <activity

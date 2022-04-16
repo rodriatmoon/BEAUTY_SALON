@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">NINI</string>
+    <string name="citas">CITA</string>
     <string name="by">Rodrigo Josué González Amaya | GA191914</string>
     <string name="Tratamiento1">Alisado Normal</string>
     <string name="Precio1"> $5.50</string>
