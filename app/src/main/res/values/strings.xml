@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">NINI</string>
+    <string name="by">Rodrigo Josué González Amaya | GA191914</string>
+    <string name="Tratamiento1">Alisado Normal</string>
+    <string name="Precio1"> $5.50</string>
+    <string name="Tratamiento2">Alisado Keratina</string>
+    <string name="Precio2"> $20.00</string>
+    <string name="Tratamiento3">Corte de Caballero</string>
+    <string name="Precio3"> $3.50</string>
+    <string name="Tratamiento4">Corte de Señorita</string>
+    <string name="Precio4"> $8.80</string>
+    <string name="Tratamiento5">Facial</string>
+    <string name="Precio5"> $10.25</string>
+    <string name="Tratamiento6">Peinado</string>
+    <string name="Precio6"> $16.50</string>
+    <string name="Tratamiento7">Lavado de Cabello</string>
+    <string name="Precio7"> $5.00</string>
+    <string name="Tratamiento8">Mechas</string>
+    <string name="Precio8"> $16.50</string>
+    <string name="Tratamiento9">Faciales</string>
+    <string name="Precio9"> $20.00</string>
+    <string name="Tratamiento10">Manicure</string>
+    <string name="Precio10"> $8.50</string>
+</resources>
