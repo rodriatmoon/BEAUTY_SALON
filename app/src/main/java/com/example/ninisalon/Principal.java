@@ -152,11 +152,6 @@ public class Principal extends AppCompatActivity {
                 startActivity(intent);
 
                 return true;
-
-            case R.id.history:
-
-                return true;
-
         }
         return super.onOptionsItemSelected(item);
     }

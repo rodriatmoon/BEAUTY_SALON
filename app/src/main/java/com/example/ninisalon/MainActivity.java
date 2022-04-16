@@ -30,6 +30,6 @@ public class MainActivity<cardView> extends AppCompatActivity {
             }
         };
         Timer t = new Timer();
-        t.schedule(splash, 500);
+        t.schedule(splash, 5000);
     }
 }
